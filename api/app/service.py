@@ -20,7 +20,7 @@ def stable_list_sql(status: str, page: int) -> str:
 
 def normalize_due_at(value: datetime) -> datetime:
     if value.tzinfo is None: raise ValueError('due_at must include timezone')
-    return value.astimezone(timezone.utc)
+    return value
 
 def batch_assignee_sql(count: int) -> str:
     if count <= 0: raise ValueError('count must be positive')
