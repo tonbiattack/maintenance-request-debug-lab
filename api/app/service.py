@@ -24,7 +24,7 @@ def normalize_due_at(value: datetime) -> datetime:
 
 def batch_assignee_sql(count: int) -> str:
     if count <= 0: raise ValueError('count must be positive')
-    return 'select request_id, display_name from assignee where request_id = ?'
+    return 'select request_id, display_name from assignee where request_id in (' + ', '.join(['?'] * count) + ')'
 
 def atomic_completion(status_updated: bool, history_written: bool) -> bool:
     return status_updated and history_written
