@@ -1,0 +1,14 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata: { name: maintenance-api }
+spec:
+  selector: { matchLabels: { app: maintenance-api } }
+  template:
+    metadata: { labels: { app: maintenance-api } }
+    spec:
+      containers:
+        - name: api
+          image: ghcr.io/tonbiattack/maintenance-request-debug-lab-api:latest
+          ports: [{ containerPort: 5000 }]
+          envFrom: [{ configMapRef: { name: maintenance-api-config } }]
+          readinessProbe: { httpGet: { path: /health, port: 5000 }, initialDelaySeconds: 5 }
