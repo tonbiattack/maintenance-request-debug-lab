@@ -7,6 +7,7 @@ class MaintenanceRequest:
     status: str
     assignee_display_name: str
     due_at: datetime
+    version: int = 0
 
 class ValidationProblem(Exception): pass
 
