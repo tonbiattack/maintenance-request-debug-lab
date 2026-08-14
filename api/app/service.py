@@ -37,4 +37,4 @@ def required_assignee_display_name(value: str) -> str:
     return value
 
 def request_id_for_log(header: str | None) -> str:
-    return header or ''
+    return header or 'generated-request-id'
