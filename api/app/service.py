@@ -16,7 +16,7 @@ def error_status(error: Exception) -> int:
 
 def stable_list_sql(status: str, page: int) -> str:
     if page < 1: raise ValueError('page must be positive')
-    return "select id, status, due_at from maintenance_request where status = ? order by due_at asc, id asc limit 20 offset ?"
+    return "select id, status, due_at from maintenance_request where status = ? limit 20 offset ?"
 
 def normalize_due_at(value: datetime) -> datetime:
     if value.tzinfo is None: raise ValueError('due_at must include timezone')
