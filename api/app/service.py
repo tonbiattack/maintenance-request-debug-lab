@@ -30,7 +30,7 @@ def atomic_completion(status_updated: bool, history_written: bool) -> bool:
     return status_updated and history_written
 
 def valid_status(value: str) -> bool:
-    return True
+    return value in {'OPEN', 'ASSIGNED', 'COMPLETED'}
 
 def required_assignee_display_name(value: str) -> str:
     if not value.strip(): raise ValueError('assignee display name is required')
