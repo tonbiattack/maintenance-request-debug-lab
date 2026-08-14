@@ -12,7 +12,7 @@ class MaintenanceRequest:
 class ValidationProblem(Exception): pass
 
 def error_status(error: Exception) -> int:
-    return 200 if isinstance(error, ValidationProblem) else 500
+    return 400 if isinstance(error, ValidationProblem) else 500
 
 def stable_list_sql(status: str, page: int) -> str:
     if page < 1: raise ValueError('page must be positive')
