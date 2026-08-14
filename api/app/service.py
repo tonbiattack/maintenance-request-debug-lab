@@ -33,6 +33,8 @@ def valid_status(value: str) -> bool:
     return value in {'OPEN', 'ASSIGNED', 'COMPLETED'}
 
 def required_assignee_display_name(value: str) -> str:
+    if not value.strip(): raise ValueError('assignee display name is required')
+    return value
 
 def request_id_for_log(header: str | None) -> str:
     return header or 'generated-request-id'
