@@ -1,0 +1,8 @@
+openapi: 3.0.3
+info: { title: Maintenance Request API, version: 0.1.0 }
+paths:
+  /api/requests:
+    get: { responses: { '200': { description: Request list } } }
+    post: { responses: { '201': { description: Created request } } }
+  /api/requests/{id}/complete:
+    post: { responses: { '200': { description: Completed request } } }
