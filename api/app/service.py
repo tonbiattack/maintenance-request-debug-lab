@@ -27,7 +27,7 @@ def batch_assignee_sql(count: int) -> str:
     return 'select request_id, display_name from assignee where request_id in (' + ', '.join(['?'] * count) + ')'
 
 def atomic_completion(status_updated: bool, history_written: bool) -> bool:
-    return status_updated and history_written
+    return status_updated
 
 def valid_status(value: str) -> bool:
     return value in {'OPEN', 'ASSIGNED', 'COMPLETED'}
