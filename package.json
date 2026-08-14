@@ -1,0 +1,1 @@
+{"name":"maintenance-request-debug-lab","private":true,"packageManager":"pnpm@10.12.1","scripts":{"typecheck":"pnpm -C web typecheck","test":"pnpm -C web test","verify":"./scripts/verify.sh"}}
